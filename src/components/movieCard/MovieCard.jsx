@@ -8,7 +8,7 @@ import CircleRating from '../circleRating/CircleRating'
 const MovieCard = ({ item, fromSearch, media_type }) => {
 
     const navigate = useNavigate()
-    const posterUrl = item.poster_path ? "https://image.tmdb.org/t/p/original" + item.poster_path : PosterFallback
+    const posterUrl = item.poster_path ? "https://image.tmdb.org/t/p/w500" + item.poster_path : PosterFallback
     return (
         <div className='cursor-pointer' onClick={() => { navigate(`/${media_type}/${item?.id}`) }} >
             <div className='relative'>
