@@ -20,7 +20,7 @@ const MovieCard = ({ item, fromSearch, media_type }) => {
                 )}
             </div>
             <p className=' text-lg text-ellipsis overflow-hidden h-8 mt-3 font-light ...' >{item.title || item.name}</p>
-            <p className='text-slate-400 text-sm' >{dayjs(item.release_date).format("MMM D, YYYY")}</p>
+            <p className='text-slate-400 text-sm' >{media_type === 'movie' ? (dayjs(item?.release_date).format('MMM D, YYYY')) : (dayjs(item?.first_air_date).format('MMM D, YYYY'))}</p>
         </div>
     )
 }

@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom'
 import useFetch from '../../../hooks/useFetch'
 import Img from '../../../components/lazyLoadImage/Img'
 import PosterFallback from '../../../assets/no-poster.png'
-import { useSelector } from 'react-redux'
 import dayjs from 'dayjs'
 import CircleRating from '../../../components/circleRating/CircleRating'
 import Genres from '../../../components/genres/Genres'
@@ -13,7 +12,6 @@ const DetailsBanner = ({ video, crew }) => {
 
     const [show, setShow] = useState(false)
     const [videoId, setVideoId] = useState(null)
-    const { url } = useSelector((state) => state.home)
     const { mediaType, id } = useParams()
     const { data, loading } = useFetch(`/${mediaType}/${id}`)
 
@@ -21,7 +19,6 @@ const DetailsBanner = ({ video, crew }) => {
 
     document.title = data ? data?.title || data?.name : "Moviea"
 
-    // console.log(data);
     const itemGenres = data?.genres.map((g) => g.id)
 
     const director = crew?.filter((f) => f.job === 'Director')
@@ -49,7 +46,7 @@ const DetailsBanner = ({ video, crew }) => {
                                 </div>
                                 <div className='py-3 w-full md:w-1/2' >
                                     <div>
-                                        <h1 className='text-white text-3xl font-light' >{(data?.title || data?.name) + ` (${dayjs(data?.release_date).format('YYYY')})`}</h1>
+                                        <h1 className='text-white text-3xl font-light' >{(data?.title || data?.name)} <span className='text-xl' >{mediaType === 'movie' ? ("(" + dayjs(data?.release_date).format('YYYY') + ")") : ("(" + dayjs(data?.first_air_date).format('YYYY') + ")")}</span></h1>
                                         <p className='text-slate-400 italic text-sm' >{data?.tagline}</p>
                                     </div>
                                     <Genres data={itemGenres} />
@@ -77,7 +74,7 @@ const DetailsBanner = ({ video, crew }) => {
                                     </div>
                                     <div className='flex gap-5 mt-7 border-b pb-4 border-slate-700' >
                                         <div className='font-medium flex gap-2 items-center flex-wrap text-sm' >Status:<span className='font-light flex items-center text-slate-400' >{data?.status}</span></div>
-                                        <div className='font-medium flex gap-2 items-center flex-wrap text-sm' >Release Date:<span className='font-light flex items-center text-slate-400' >{dayjs(data?.release_date).format('MMM  D, YYYY')}</span></div>
+                                        <div className='font-medium flex gap-2 items-center flex-wrap text-sm' >Release Date:<span className='font-light flex items-center text-slate-400' >{mediaType === 'movie' ? dayjs(data?.release_date).format('MMM  D, YYYY') : dayjs(data?.first_air_date).format('MMM  D, YYYY')}</span></div>
                                         <div className='font-medium flex gap-2 items-center flex-wrap text-sm' >Runtime:<span className='font-light flex items-center text-slate-400' >{toHoursToMinutes(data?.runtime)}</span></div>
                                     </div>
                                     {director?.length > 0 && (
