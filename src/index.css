@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.lazy-load-image-background{
+    width: 100%;
+}
+::-webkit-scrollbar{
+    display:  none;
+}
+
+.genresDD .react-select__control, .sortbyDD .react-select__control{
+    background-color: #1e293b;
+    border: 2px solid #334155;
+}
+.genresDD .react-select__menu, .sortbyDD .react-select__menu{
+    background-color: #1e293b;
+}
+.genresDD .react-select__option--is-focused, .sortbyDD .react-select__option--is-focused{
+    background-color: #334155;
+}
+.genresDD .react-select__value-container, .sortbyDD .react-select__value-container {
+    display:  flex;
+    flex-wrap: nowrap;
+}
+.genresDD .react-select__input-container, .sortbyDD .react-select__input-container{
+    color: #94a3b8;
+}
+.genresDD .react-select__multi-value__label, .sortbyDD .react-select__multi-value__label{
+    background-color: #334155;
+    color: #94a3b8;
+    border: 0;
+    padding-right: 8px;
+}
+.genresDD .react-select__multi-value__remove, .sortbyDD .react-select__multi-value__remove{
+    background-color: #334155;
+    color: #94a3b8;
+    border: 0;
+}
+.genresDD .react-select__placeholder, .sortbyDD .react-select__placeholder{
+    color: white;
+}
