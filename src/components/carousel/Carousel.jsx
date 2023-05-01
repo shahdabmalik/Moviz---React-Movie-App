@@ -14,6 +14,7 @@ const Carousel = ({ data, loading, endpoint }) => {
 
     const navigate = useNavigate()
     const { url } = useSelector((state) => state.home)
+    
 
     const swiperSlide = () => {
         return (
@@ -75,7 +76,7 @@ const Carousel = ({ data, loading, endpoint }) => {
                                     </div>
                                 </div>
                                 <p className=' text-lg text-ellipsis overflow-hidden h-8 mt-6 font-light ...' >{item.title || item.name}</p>
-                                <p className='text-slate-400 text-sm' >{dayjs(item.release_date).format("MMM D, YYYY")}</p>
+                                <p className='text-slate-400 text-sm' >{ item?.media_type ? (item?.media_type === "movie" ? dayjs(item.release_date).format("MMM D, YYYY") : dayjs(item.first_air_date).format("MMM D, YYYY")) : (endpoint === "movie" ? dayjs(item.release_date).format("MMM D, YYYY") : dayjs(item.first_air_date).format("MMM D, YYYY")) }</p>
                             </SwiperSlide>
                         )
                     })}
