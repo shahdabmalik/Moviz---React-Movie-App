@@ -83,7 +83,7 @@ const Header = () => {
   return (
     <header className={'w-full font-poppins fixed top-0 left-[50%] bg-slate-950  translate-x-[-50%] z-20 backdrop-blur-sm transition-all  ' + (isOpen && " bg-opacity-100 ") + (show && " bg-opacity-100 ") + (!isOpen && !show && " bg-opacity-40 ") + (hide && " top-[-100px] ")} >
       <div className='max-w-screen-2xl w-full mx-auto px-4 md:px-6 py-2 sm:py-1 flex justify-between items-center relative z-20' >
-        <div className='w-28 sm:w-40 z-50' >
+        <div className='w-28 sm:w-40 z-50 py-1' >
           <img onClick={goHome} className='w-full cursor-pointer' src={logo} alt='logo' />
         </div>
         <div className='text-white flex gap-8' >

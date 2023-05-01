@@ -40,12 +40,12 @@ const DetailsBanner = ({ video, crew }) => {
                     {!!data && (
                         <div className='w-full z-10 relative' >
                             <div className=' overflow-hidden absolute  opacity-10 top-0 left-0 w-full h-[650px] 3xl:h-[800px]' >
-                                <Img src={url.backdrop + (data?.backdrop_path)} className={`w-full object-cover h-[650px] 3xl:h-[800px]`} alt='backdrop' />
+                                <Img src={"https://image.tmdb.org/t/p/w1280" + (data?.backdrop_path)} className={`w-full object-cover h-[650px] 3xl:h-[800px]`} alt='backdrop' />
                                 <div className='absolute bottom-0 w-full h-[300px] bg-gradient-to-t from-slate-900 to-transparent' ></div>
                             </div>
                             <div className='max-w-screen-xl text-white relative w-full flex flex-col md:flex-row gap-0 md:gap-10 mx-auto pt-[60px] px-4 md:px-6' >
                                 <div className='py-3' >
-                                    <Img className=' max-w-full w-full xs:w-2/3 mx-auto md:w-[340px] rounded-lg' src={data?.poster_path ? (url.backdrop + data?.poster_path) : PosterFallback} alt='poster' />
+                                    <Img className=' max-w-full w-full xs:w-2/3 mx-auto md:w-[340px] rounded-lg' src={data?.poster_path ? ("https://image.tmdb.org/t/p/w500" + data?.poster_path) : PosterFallback} alt='poster' />
                                 </div>
                                 <div className='py-3 w-full md:w-1/2' >
                                     <div>

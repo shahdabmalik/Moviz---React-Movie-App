@@ -8,6 +8,7 @@ import dayjs from 'dayjs'
 import 'react-circular-progressbar/dist/styles.css';
 import CircleRating from '../circleRating/CircleRating'
 import { useNavigate } from 'react-router-dom'
+import { Autoplay } from 'swiper'
 
 const Carousel = ({ data, loading, endpoint }) => {
 
@@ -32,6 +33,11 @@ const Carousel = ({ data, loading, endpoint }) => {
             // slidesPerView={6}
             loop={true}
             spaceBetween={20}
+            autoplay={{
+                delay:5000,
+                disableOnInteraction: false
+            }}
+            modules={[Autoplay]}
             breakpoints={{
                 300: {
                     slidesPerView: 2
@@ -53,7 +59,7 @@ const Carousel = ({ data, loading, endpoint }) => {
             {!loading ? (
                 <div>
                     {data?.map((item) => {
-                        const posterUrl = item.poster_path ? "https://image.tmdb.org/t/p/original" + item.poster_path : PosterFallback
+                        const posterUrl = item.poster_path ? "https://image.tmdb.org/t/p/w500" + item.poster_path : PosterFallback
                         return (
                             <SwiperSlide className=' cursor-pointer' key={item.id} onClick={() => {
                                 if (endpoint === 'day' || endpoint === 'week') {

@@ -63,7 +63,7 @@ const Cast = ({ cast, loading }) => {
                     {!loading ? (
                         <div className=''>
                             {cast?.map((c) => {
-                                const profileUrl = c.profile_path ? "https://image.tmdb.org/t/p/original" + c.profile_path : ProfileFallback
+                                const profileUrl = c.profile_path ? "https://image.tmdb.org/t/p/w185" + c.profile_path : ProfileFallback
                                 return (
                                     <SwiperSlide key={c.id}>
                                         <div className=' flex flex-col items-center justify-center overflow-hidden text-ellipsis'>
