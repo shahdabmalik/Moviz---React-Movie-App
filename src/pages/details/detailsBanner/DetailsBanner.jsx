@@ -14,6 +14,7 @@ const DetailsBanner = ({ video, crew }) => {
     const [videoId, setVideoId] = useState(null)
     const { mediaType, id } = useParams()
     const { data, loading } = useFetch(`/${mediaType}/${id}`)
+    console.log(data);
 
     const trailer = video?.filter((v) => (v.type === 'Trailer'))
 
@@ -26,7 +27,7 @@ const DetailsBanner = ({ video, crew }) => {
     const toHoursToMinutes = (totalMinutes) => {
         const hours = Math.floor(totalMinutes / 60)
         const minutes = totalMinutes % 60
-        return `${hours}h${minutes > 0 ? ` ${minutes}m` : ""}`
+        return `${hours > 0 ? `${hours}h` : ""} ${minutes > 0 ? ` ${minutes}m` : ""}`
     }
 
 
@@ -75,7 +76,7 @@ const DetailsBanner = ({ video, crew }) => {
                                     <div className='flex gap-5 mt-7 border-b pb-4 border-slate-700' >
                                         <div className='font-medium flex gap-2 items-center flex-wrap text-sm' >Status:<span className='font-light flex items-center text-slate-400' >{data?.status}</span></div>
                                         <div className='font-medium flex gap-2 items-center flex-wrap text-sm' >Release Date:<span className='font-light flex items-center text-slate-400' >{mediaType === 'movie' ? dayjs(data?.release_date).format('MMM  D, YYYY') : dayjs(data?.first_air_date).format('MMM  D, YYYY')}</span></div>
-                                        <div className='font-medium flex gap-2 items-center flex-wrap text-sm' >Runtime:<span className='font-light flex items-center text-slate-400' >{toHoursToMinutes(data?.runtime)}</span></div>
+                                        <div className='font-medium flex gap-2 items-center flex-wrap text-sm' >Runtime:<span className='font-light flex items-center text-slate-400' >{mediaType === 'movie' ? toHoursToMinutes(data?.runtime) : toHoursToMinutes(data?.episode_run_time)} {mediaType === 'tv' && ("/ episode")}</span></div>
                                     </div>
                                     {director?.length > 0 && (
                                         <div className='flex gap-5 mt-4 border-b pb-4 border-slate-700' >
