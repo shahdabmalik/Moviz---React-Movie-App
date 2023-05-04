@@ -14,7 +14,6 @@ const DetailsBanner = ({ video, crew }) => {
     const [videoId, setVideoId] = useState(null)
     const { mediaType, id } = useParams()
     const { data, loading } = useFetch(`/${mediaType}/${id}`)
-    console.log(data);
 
     const trailer = video?.filter((v) => (v.type === 'Trailer'))
 
