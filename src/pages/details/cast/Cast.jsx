@@ -13,7 +13,7 @@ const Cast = ({ cast, loading }) => {
 
     const swiperSlide = () => {
         return (
-            <SwiperSlide>
+            <SwiperSlide className=' animate-pulse' >
                 <div className=' flex flex-col items-center justify-center overflow-hidden text-ellipsis'>
                     <div className='rounded-full bg-slate-800 h-[100px] w-[100px] mx-auto'></div>
                     <div className='mt-3 rounded bg-slate-800 w-24 h-4' ></div>

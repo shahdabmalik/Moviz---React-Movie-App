@@ -154,7 +154,22 @@ const Explore = () => {
                 dataLength={data?.results?.length || []}
                 next={fetchNextPageData}
                 hasMore={pageNum <= data?.total_pages}
-                loader={<></>}
+                loader={
+                  <div className='flex items-center justify-center' >
+                    <Oval
+                      height={80}
+                      width={80}
+                      color="#ffffff"
+                      wrapperStyle={{}}
+                      wrapperClass=""
+                      visible={true}
+                      ariaLabel='oval-loading'
+                      secondaryColor="#444"
+                      strokeWidth={3}
+                      strokeWidthSecondary={2}
+                    />
+                  </div>
+                }
               >
                 {data?.results?.map((item, index) => {
                   if (item.media_type === "person") return;

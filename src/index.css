@@ -40,3 +40,9 @@
 .genresDD .react-select__placeholder, .sortbyDD .react-select__placeholder{
     color: white;
 }
+.genresDD .react-select__multi-value, .sortbyDD .react-select__multi-value{
+    background: #334155;
+}
+.sortbyDD .react-select__single-value{
+    color: white;
+}

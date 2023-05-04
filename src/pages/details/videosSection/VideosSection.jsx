@@ -15,7 +15,7 @@ const VideosSection = ({ video, loading }) => {
 
     const swiperSlide = () => {
         return (
-            <SwiperSlide>
+            <SwiperSlide className=' animate-pulse'>
                 <div className='relative' >
                     <div className='w-full aspect-16/9'></div>
                     <div className='flex items-center justify-center bg-slate-800 text-white text-opacity-70 hover:text-red-500 cursor-pointer absolute top-0 left-0 w-full h-full' >

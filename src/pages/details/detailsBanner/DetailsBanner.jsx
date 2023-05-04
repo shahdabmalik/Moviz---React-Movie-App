@@ -111,7 +111,7 @@ const DetailsBanner = ({ video, crew }) => {
                     )}
                 </>
             ) : (
-                <div className='w-full z-10 relative' >
+                <div className='w-full z-10 relative animate-pulse' >
                     <div className='max-w-screen-xl text-white relative w-full flex flex-col md:flex-row gap-0 md:gap-10 mx-auto pt-[60px] px-4 md:px-6' >
                         <div className='py-3' >
                             <div className=' max-w-full bg-slate-800 w-full xs:w-2/3 mx-auto md:w-[340px] aspect-9/16 rounded-lg'></div>

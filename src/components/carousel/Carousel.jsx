@@ -18,7 +18,7 @@ const Carousel = ({ data, loading, endpoint }) => {
 
     const swiperSlide = () => {
         return (
-            <SwiperSlide >
+            <SwiperSlide className=' animate-pulse' >
                 <div className='relative'>
                     <div className=" max-w-full bg-slate-800 rounded-xl aspect-9/16" ></div>
                     {/* <div className='absolute bottom-[-10px] bg-slate-700 rounded-full p-1 font-semibold left-2 h-10 w-10'></div> */}

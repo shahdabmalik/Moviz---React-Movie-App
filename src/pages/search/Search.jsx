@@ -2,8 +2,10 @@ import React, { useEffect, useRef, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { useParams } from 'react-router-dom'
 import { fetchDataFromApi } from '../../utils/api'
-import { Oval, TailSpin } from 'react-loader-spinner'
+import { Oval } from 'react-loader-spinner'
 import MovieCard from '../../components/movieCard/MovieCard'
+import noResults from '../../assets/no-results.png'
+import Img from '../../components/lazyLoadImage/Img'
 
 
 const Search = () => {
@@ -39,7 +41,7 @@ const Search = () => {
     })
   }
 
-  useEffect( () => {
+  useEffect(() => {
     setPageNum(1)
     pageNumRef.current = 1
     fetchInitialData();
@@ -75,18 +77,20 @@ const Search = () => {
                   next={fetchNextPageData}
                   hasMore={pageNum <= data?.total_pages}
                   loader={
-                    <Oval
-                      height={80}
-                      width={80}
-                      color="#ffffff"
-                      wrapperStyle={{}}
-                      wrapperClass=""
-                      visible={true}
-                      ariaLabel='oval-loading'
-                      secondaryColor="#444"
-                      strokeWidth={3}
-                      strokeWidthSecondary={2}
-                    />
+                    <div className='flex items-center justify-center' >
+                      <Oval
+                        height={80}
+                        width={80}
+                        color="#ffffff"
+                        wrapperStyle={{}}
+                        wrapperClass=""
+                        visible={true}
+                        ariaLabel='oval-loading'
+                        secondaryColor="#444"
+                        strokeWidth={3}
+                        strokeWidthSecondary={2}
+                      />
+                    </div>
                   }
                 >
                   {data?.results?.map((item, index) => {
@@ -98,7 +102,12 @@ const Search = () => {
                 </InfiniteScroll>
               </>
             ) : (
-              <>Sorry</>
+              <div className=' h-screen flex items-center justify-center text-slate-300' >
+                <div>
+                  <Img className={'w-[500px] max-w-full'} src={noResults} alt={'no results found'} />
+                  <h1 className='text-2xl text-center' >No results found...</h1>
+                </div>
+              </div>
             )}
           </div>
         )}

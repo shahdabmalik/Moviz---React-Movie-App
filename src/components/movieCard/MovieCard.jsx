@@ -10,7 +10,7 @@ const MovieCard = ({ item, fromSearch, media_type }) => {
     const navigate = useNavigate()
     const posterUrl = item.poster_path ? "https://image.tmdb.org/t/p/w500" + item.poster_path : PosterFallback
     return (
-        <div className='cursor-pointer' onClick={() => { navigate(`/${media_type}/${item?.id}`) }} >
+        <div className='cursor-pointer hover:animate-pulse ' onClick={() => { navigate(`/${media_type}/${item?.id}`) }} >
             <div className='relative'>
                 <Img src={posterUrl} alt={'poster'} className={" w-64 max-w-full rounded-xl aspect-9/16"} />
                 {!fromSearch && (
